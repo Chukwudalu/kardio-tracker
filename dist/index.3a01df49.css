@@ -1,0 +1,354 @@
+:root {
+  --color-brand--1: #ffb545;
+  --color-brand--2: #00c46a;
+  --color-dark--1: #2d3439;
+  --color-dark--2: #42484d;
+  --color-light--1: #aaa;
+  --color-light--2: #ececec;
+  --color-light--3: #d6dee0;
+  --color-white: #fff;
+  --color-black: #000;
+}
+
+* {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  color: var(--color-light--2);
+  height: 100vh;
+  overscroll-behavior-y: none;
+  background-color: #fff;
+  font-family: Josefin Sans, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.6;
+  position: relative;
+}
+
+a:link, a:visited {
+  color: var(--color-brand--1);
+}
+
+.header {
+  width: 100%;
+  height: 7rem;
+  z-index: 6000;
+  background-color: #232424;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 2rem;
+  display: flex;
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+
+.header__text {
+  color: var(--color-white);
+  font-family: Courgette, cursive;
+  font-size: 2.5rem;
+}
+
+.sidebar {
+  background-color: var(--color-dark--1);
+  height: 100%;
+  width: 50rem;
+  z-index: 5000;
+  padding: 5rem 5rem 4rem;
+  transition: all .8s ease-in-out;
+  position: absolute;
+  top: 7rem;
+}
+
+.sidebar--hide {
+  left: -200rem;
+}
+
+.sidebar--show {
+  left: 0;
+}
+
+.sidebar__cancelIcon {
+  background-color: var(--color-white);
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.sidebar__cancelIcon__icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.logo {
+  height: 5.2rem;
+  align-self: center;
+  margin-bottom: 4rem;
+}
+
+.workouts {
+  height: 77vh;
+  list-style: none;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.workouts::-webkit-scrollbar {
+  width: 0;
+}
+
+.workout {
+  background-color: var(--color-dark--2);
+  cursor: pointer;
+  border-radius: 5px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: .75rem 1.5rem;
+  margin-bottom: 1.75rem;
+  padding: 1.5rem 2.25rem;
+  display: grid;
+}
+
+.workout--running {
+  border-left: 5px solid var(--color-brand--2);
+}
+
+.workout--cycling {
+  border-left: 5px solid var(--color-brand--1);
+}
+
+.workout__title {
+  grid-column: 1 / -1;
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+
+.workout__details {
+  align-items: baseline;
+  display: flex;
+}
+
+.workout__icon {
+  height: .28rem;
+  margin-right: .2rem;
+  font-size: 1.8rem;
+}
+
+.workout__value {
+  margin-right: .5rem;
+  font-size: 1.5rem;
+}
+
+.workout__unit {
+  color: var(--color-light--1);
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.workouts__locator {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  background-color: var(--color-white);
+  z-index: 3000;
+  justify-content: baseline;
+  cursor: pointer;
+  align-items: center;
+  padding: 1.5rem;
+  transition: all .8s ease-in-out;
+  display: flex;
+  position: absolute;
+  top: 70vh;
+  box-shadow: 0 3px 8px #0000003d;
+}
+
+.workouts__locator--show {
+  left: 0;
+}
+
+.workouts__locator--hide {
+  left: -200rem;
+}
+
+.workouts__locator > p {
+  color: var(--color-black);
+  margin-right: 1rem;
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+
+.workouts__locator > img {
+  width: 2rem;
+  height: 2rem;
+}
+
+.form {
+  background-color: var(--color-dark--2);
+  height: 9.25rem;
+  border-radius: 5px;
+  grid-template-columns: 1fr 1fr;
+  gap: .5rem 2.5rem;
+  margin-bottom: 1.75rem;
+  padding: 1.5rem 2.75rem;
+  transition: all .5s, transform 1ms;
+  display: grid;
+}
+
+.form.hidden {
+  height: 0;
+  opacity: 0;
+  margin-bottom: 0;
+  padding: 0 2.25rem;
+  transform: translateY(-30rem);
+}
+
+.form__row {
+  align-items: center;
+  display: flex;
+}
+
+.form__row--hidden {
+  display: none;
+}
+
+.form__label {
+  flex: 0 0 50%;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.form__input {
+  width: 100%;
+  background-color: var(--color-light--3);
+  border: none;
+  border-radius: 3px;
+  padding: .3rem 1.1rem;
+  font-family: inherit;
+  font-size: 1.4rem;
+  transition: all .2s;
+}
+
+.form__input:focus {
+  background-color: #fff;
+  outline: none;
+}
+
+.form__btn {
+  display: none;
+}
+
+.dropInModal {
+  width: 60rem;
+  background-color: var(--color-dark--1);
+  z-index: 3000;
+  border-radius: .3rem;
+  padding: 2rem;
+  transition: all 1s ease-out;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 3px 8px #0000003d;
+}
+
+.dropInModal.dropInModalGuide.dropInModalGuide--show {
+  top: 10rem;
+}
+
+.dropInModal.dropInModalGuide.dropInModalGuide--hide {
+  top: -100rem;
+}
+
+.dropInModalGuide > p {
+  color: var(--color-white);
+}
+
+.dropInModal.dropInModalInfo.dropInModalInfo--show {
+  top: 20rem;
+}
+
+.dropInModal.dropInModalInfo.dropInModalInfo--hide {
+  top: -120rem;
+}
+
+.dropInModal__cancel {
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--color-white);
+  cursor: pointer;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.dropInModal__cancel > img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.copyright {
+  text-align: center;
+  color: var(--color-light--1);
+  margin-top: auto;
+  font-size: 1.3rem;
+}
+
+.twitter-link:link, .twitter-link:visited {
+  color: var(--color-light--1);
+  transition: all .2s;
+}
+
+.twitter-link:hover, .twitter-link:active {
+  color: var(--color-light--2);
+}
+
+#map {
+  height: 100%;
+  background-color: var(--color-light--1);
+  flex: 1;
+}
+
+.leaflet-popup .leaflet-popup-content-wrapper {
+  background-color: var(--color-dark--1);
+  color: var(--color-light--2);
+  border-radius: 5px;
+  padding-right: .6rem;
+}
+
+.leaflet-popup .leaflet-popup-content {
+  font-family: Josefin Sans, sans-serif;
+  font-size: 1.5rem;
+}
+
+.leaflet-popup .leaflet-popup-tip {
+  background-color: var(--color-dark--1);
+}
+
+.running-popup .leaflet-popup-content-wrapper {
+  border-left: 5px solid var(--color-brand--2);
+}
+
+.cycling-popup .leaflet-popup-content-wrapper {
+  border-left: 5px solid var(--color-brand--1);
+}
+
+/*# sourceMappingURL=index.3a01df49.css.map */
